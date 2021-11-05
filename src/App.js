@@ -15,6 +15,9 @@ function App() {
       <Router>
         <div className="app__body">
           <Switch>
+            <Route path="/chats/view">
+              <ChatView />
+            </Route>
             <Route path="/chats">
               <Chats />
             </Route>
