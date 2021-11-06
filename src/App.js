@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 import Preview from './Preview';
 import Chats from './Chats';
+import ChatView from './ChatView';
 
 function App() {
   return (
