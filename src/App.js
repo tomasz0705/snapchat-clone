@@ -9,27 +9,36 @@ import {
 import Preview from './Preview';
 import Chats from './Chats';
 import ChatView from './ChatView';
+import { useSelector } from 'react-redux';
+import { selectUser } from './features/appSlice';
 
 function App() {
+  const user = useSelector(selectUser);
+
   return (
     <div className="app">
       <Router>
-        <div className="app__body">
-          <Switch>
-            <Route path="/chats/view">
-              <ChatView />
-            </Route>
-            <Route path="/chats">
-              <Chats />
-            </Route>
-            <Route path="/preview">
-              <Preview />
-            </Route>
-            <Route exact path="/">
-              <WebcamCapture />
-            </Route>
-          </Switch>
+        {!user ? (
+          <Login />
+        ) : (
+          <div className="app__body">
+            <Switch>
+              <Route path="/chats/view">
+                <ChatView />
+              </Route>
+              <Route path="/chats">
+                <Chats />
+              </Route>
+              <Route path="/preview">
+                <Preview />
+              </Route>
+              <Route exact path="/">
+                <WebcamCapture />
+              </Route>
+            </Switch>
         </div>
+        )}
+
       </Router>
     </div>
   );
