@@ -7,6 +7,7 @@ import { auth, db } from "./firebase";
 import Chat from "./Chat";
 import { useSelector } from "react-redux";
 import { selectUser } from "./features/appSlice";
+import RadioButtonUncheckedIcon from '@mui/icons-material/RadioButtonUnchecked';
 
 function Chats() {
   const [posts, setPosts] = useState([]);
@@ -24,6 +25,10 @@ function Chats() {
         )
       );
   }, []);
+
+  const takeSnap = () => {
+
+  }
   return (
     <div className="chats">
       <div className="chats__header">
@@ -57,6 +62,12 @@ function Chats() {
           )
         )}
       </div>
+
+      <RadioButtonUncheckedIcon
+        className="chats__takePicIcon"
+        onClick={takeSnap}
+        fontSize="large"
+      />
     </div>
   );
 }
